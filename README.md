@@ -1,6 +1,6 @@
 # Pharmasy-system
 This project is the final part for assessing the student on the disciplines of “Software engineering”, “Theory of Information systems”, by applying the acquired knowledge and skills in practice, where the student successfully demonstrated them when writing code, constructing flowcharts, creating a database, etc.
-These are screenshots of the finished work.
+These are screenshots of the finished work.                                                                                                                                                                                                                                
 Sign up ir register page                                                                        
 ![Sign up ir register page](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/81f9c284-34be-41b4-a6f4-44b5f19d425c)
 Admin page
