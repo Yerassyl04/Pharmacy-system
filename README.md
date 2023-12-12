@@ -9,3 +9,5 @@ User page
 ![User page](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/b9b6b2d7-f4da-4b69-a4b0-6c88ee379132)
 Login page
 ![Login page](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/786044e5-ff36-4246-ba8a-833cdf755f00)
+
+Sincerly Iskakov Yerassyl. If you have questions or feedback, let me know. Iskakivich@mail.ru
