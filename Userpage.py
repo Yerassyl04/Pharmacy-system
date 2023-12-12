@@ -45,7 +45,6 @@ def search_command():
     for row in rows:
         list1.insert(END, row)
 
-
 def addbasket():
     selected_item = list1.get(list1.curselection())
     if selected_item:
@@ -56,7 +55,7 @@ def removeitem():
     if selected_indices:
         for index in selected_indices[::-1]:
             basketList.delete(index)
-def price():
+def prices():
     total = 0
     for item in basketList.get(0, END):
         price = float(item[3])
@@ -64,8 +63,22 @@ def price():
     return total
 
 def buyitem():
-    total_price = price()
-    messagebox.showinfo("Info-show", f"Total Price: ${total_price:.2f}\nThank you for your purchase!")
+    totalprice = prices()
+    user_email= emailEntry.get()
+    messagebox.showinfo("Info-show", f"Total Price: ${totalprice:.2f}\nThank you for your purchase, We will call back!")
+    conn = create_connection()
+    cur = conn.cursor()
+
+    for item in basketList.get(0, END):
+        med_id = item[0]
+        medicine_name = item[1]
+        price = item[3]
+        manufacturer = item[4]
+
+        cur.execute("INSERT INTO userbuy (user_email, med_id, medicine_name, price, manufacturer, totalprice) VALUES (%s, %s, %s, %s, %s, %s)", (user_email, med_id, medicine_name, price, manufacturer, totalprice))
+
+    conn.commit()
+    conn.close()
     basketList.delete(0, END)
 
 
@@ -95,7 +108,7 @@ def contacts():
 
 # main configs
 user_window=Tk()
-user_window.geometry('1900x1000+50+50')
+user_window.geometry('1900x1080')
 user_window.resizable(1,1)
 user_window.wm_title("User Page")
 
@@ -127,7 +140,6 @@ def show_image(event):
             canvas.delete("all")
             canvas.create_image(0, 0, anchor=NW, image=photo)
             canvas.image = photo
-
 
 
 # ---------------------------------------------
@@ -166,7 +178,7 @@ save = Canvas(user_window, width=650, height=500)
 save.place(x=200, y=200)
 save.create_image(325, 250, image=img)
 
-infLabel=Label(user_window, text="Save your family, save the world!", font=('Lalita', 18, 'bold'), bg='#c6e8d0', fg='#385b66')
+infLabel=Label(user_window, text="Wear the mask, save your family!", font=('Lalita', 18, 'bold'), bg='#c6e8d0', fg='#385b66')
 infLabel.place(x=300, y=710)
 
 mybasketLabel=Label(user_window, text="My Basket", font=('Lalita', 18, 'bold'), bg='#c6e8d0', fg='#385b66')
@@ -194,11 +206,17 @@ manLabel.place(x=900, y=300)
 manEntry=Entry(user_window, width=15, font=('Lalita', 18, 'bold'))   #manf
 manEntry.place(x=1200, y=300)
 
+emailEntry = Entry(user_window, width=25, font=('Lalita', 18, 'bold'))
+emailEntry.place(x=1200, y=150)
+
+emailLabel=Label(user_window, text="Enter your email", font=('Lalita', 18, 'bold'), bg='#c6e8d0', fg='#385b66')
+emailLabel.place(x=900, y=150)
+
 searchButton=Button(user_window, text="Search item",font=('Lilita', 14), width=12, command=search_command, bg='#e7f5eb')
-searchButton.place(x=1450, y=200)
+searchButton.place(x=1420, y=200)
 
 addbasketButton=Button(user_window, text="Add to basket",font=('Lilita', 14), width=12,  command=addbasket,  bg='#e7f5eb')
-addbasketButton.place(x=1450, y=250)
+addbasketButton.place(x=1420, y=250)
 
 removeButton= Button(user_window, text="Remove item", font=('Lilita', 14), width=12, command=removeitem, bg='#e7f5eb')
 removeButton.place(x=1000, y=750)
