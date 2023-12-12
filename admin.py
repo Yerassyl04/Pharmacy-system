@@ -114,10 +114,22 @@ def deleteuser_command():
     conn.commit()
     conn.close()
 
+
+
+#lisbox of saaalllesss
+def viewtran_command():
+    conn = create_connection()
+    cur = conn.cursor()
+    cur.execute("SELECT user_email, medicine_name, manufacturer, totalprice FROM userbuy")
+    rows = cur.fetchall()
+    conn.close()
+    list3.delete(0, END)
+    for row in rows:
+        list3.insert(END, row)
 # page fronendddddddddddd
 
 admin_window=Tk()
-admin_window.geometry('1900x1000+50+50')
+admin_window.geometry('1900x1080')
 admin_window.resizable(1,1)
 admin_window.wm_title("Admin Page")
 
@@ -217,6 +229,12 @@ searchuserButton.place(x=100, y=350)
 deleteuserButton=Button(admin_window, text="Delete user",font=('Lilita', 14), width=14, command=deleteuser_command, bg='#e7f5eb')
 deleteuserButton.place(x=100, y=400)
 
+#transactions
+tran=Label(admin_window, text="Sales Management", font=('Lalita', 40, 'bold'), bg='#c6e8d0', fg='#46af6b')
+tran.place(x=200, y=600)
+
+viewtranButton=Button(admin_window, text="View all",font=('Lilita', 14), width =14, command=viewtran_command, bg='#e7f5eb')
+viewtranButton.place(x=100, y=700)
 
 
 list2=Listbox(admin_window, height=17, width=70)
@@ -228,14 +246,15 @@ sb11.place(x=700, y=300)
 list2.configure(yscrollcommand=sb11.set)
 sb11.configure(command=list2.yview)
 
-sb22=Scrollbar(admin_window)
-sb22.place(x=290, y=520)
+#sales list
+list3=Listbox(admin_window, height=17, width=70)
+list3.place(x=290, y=700)
 
-list2.configure(xscrollcommand=sb22.set)
-sb22.configure(command=list2.xview)
+sb33=Scrollbar(admin_window)
+sb33.place(x=700, y=300)
 
+list3.configure(yscrollcommand=sb33.set)
+sb33.configure(command=list3.yview)
 
 
 admin_window.mainloop()
-
-
