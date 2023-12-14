@@ -10,4 +10,24 @@ User page
 Login page
 ![Login page](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/786044e5-ff36-4246-ba8a-833cdf755f00)
 
+
+
+UML's of the project
+
+
+![Data Flow diagram](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/be63f4d3-76fc-40d1-93aa-72a37ac11635)
+![Data Flow Diagram 2](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/fb67febc-0829-4be1-bfdd-e1dd71577896)
+![User case diagram](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/14267a0c-9dad-4d00-a1bf-a6de856df45d)
+![Database attributes](https://github.com/Yerassyl04/Pharmasy-system/assets/136106017/d70c8529-f031-4ee0-90d0-fe861b77e5c9)
+
+
+
+
+
+
+
+
+
+
+
 Sincerly Iskakov Yerassyl. If you have questions or feedback, let me know. Iskakivich@mail.ru
